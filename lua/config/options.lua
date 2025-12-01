@@ -1,24 +1,30 @@
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.undofile = true
-vim.o.jumpoptions = "stack,view"
-vim.o.autoindent = true
+local opt = vim.opt
 
-vim.o.hlsearch = false
+opt.backup = false
+opt.writebackup = false
+opt.undofile = true
+opt.jumpoptions = "stack,view"
+opt.autoindent = true
 
-vim.o.mouse = "a"
-vim.o.clipboard = "unnamedplus"
+opt.hlsearch = false
+
+opt.mouse = "a"
+opt.clipboard = "unnamedplus"
+
+opt.grepprg = "rg --vimgrep"
 
 -- UI
 
-vim.o.winborder = "rounded"
-vim.o.termguicolors = true
+opt.winborder = "rounded"
+opt.termguicolors = true
 
-vim.o.smoothscroll = true
+opt.smoothscroll = true
 
-vim.o.expandtab = true -- spaces as tab
-vim.o.tabstop = 2 -- 2 spaces for tabs
-vim.o.shiftwidth = 0 -- Reuse value of tabstop
+opt.expandtab = true -- spaces as tab
+opt.tabstop = 2 -- 2 spaces for tabs
+opt.shiftwidth = 0 -- Reuse value of tabstop
+
+opt.fillchars = { eob = " " }
 
 -- execute .nvim.lua files in project root
 vim.opt.exrc = true
