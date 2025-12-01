@@ -92,11 +92,4 @@ return {
 			})
 		end,
 	},
-	{
-		"snacks.nvim",
-		lazy = false,
-		after = function()
-			require("snacks").setup({})
-		end,
-	},
 }

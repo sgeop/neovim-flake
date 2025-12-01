@@ -43,6 +43,7 @@
     lualine-nvim
     lazydev-nvim
     nvim-lspconfig
+    mini-icons
     oil-nvim
   ];
 
