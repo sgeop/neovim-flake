@@ -10,6 +10,10 @@
 
   appName = "neovim-flake";
 
+  aliases = [
+    "vim"
+  ];
+
   desktopEntry = false;
 
   extraLuaPackages = p: [
@@ -63,11 +67,11 @@
   };
 
   initLua = ''
-    		require("config")
-    		LZN = require("lz.n")
-        LZN.register_handler(require("handlers.which-key"))
-    		LZN.load("plugins")
-    	'';
+    require("config")
+    LZN = require("lz.n")
+    LZN.register_handler(require("handlers.which-key"))
+    LZN.load("plugins")
+  '';
 
   extraBinPath =
     let
