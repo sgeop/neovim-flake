@@ -5,7 +5,9 @@ return {
   keys = {
     {
       "<leader>f",
-      function() require("conform").format({ async = true, lsp_format = "fallback" }) end,
+      function()
+        require("conform").format({ async = true, lsp_format = "fallback" })
+      end,
       desc = "Format buffer",
       mode = "",
     },
@@ -24,5 +26,5 @@ return {
         rust = { "rustfmt" },
       },
     })
-  end
+  end,
 }

@@ -8,7 +8,7 @@
 {
   inherit (inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.system}) neovim;
 
-  appName = "mnw";
+  appName = "neovim-flake";
 
   desktopEntry = false;
 
@@ -28,10 +28,14 @@
   plugins.start = with pkgs.vimPlugins; [
     lz-n
     plenary-nvim
-    nvim-web-devicons
+    # -- disable in favor of mini-icons
+    # nvim-web-devicons
+    mini-icons
     nvim-treesitter.withAllGrammars
     which-key-nvim
     snacks-nvim
+    # colorschemes
+    vim-moonfly-colors
   ];
 
   plugins.opt = with pkgs.vimPlugins; [
@@ -43,7 +47,6 @@
     lualine-nvim
     lazydev-nvim
     nvim-lspconfig
-    mini-icons
     oil-nvim
   ];
 
