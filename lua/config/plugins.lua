@@ -1,21 +1,21 @@
-WK = require("which-key")
-WK.setup({
+WK = require('which-key')
+WK.setup {
   win = {
-    border = "single",
+    border = 'single',
   },
-})
-WK.add({ " ", "<Nop>", { silent = true, remap = false } })
+}
+WK.add { ' ', '<Nop>', { silent = true, remap = false } }
 
 -- colorscheme setup
-require("kanagawa").setup({
+require('kanagawa').setup {
   compile = false,
   undercurl = true,
   keywordStyle = { italic = true },
-  theme = "wave",
+  theme = 'wave',
   background = {
-    dark = "wave",
-    light = "lotus",
+    dark = 'wave',
+    light = 'lotus',
   },
-})
+}
 
-vim.cmd("colorscheme kanagawa")
+vim.cmd('colorscheme kanagawa')

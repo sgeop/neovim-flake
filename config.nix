@@ -19,7 +19,7 @@
   extraLuaPackages = p: [
     p.jsregexp
     p.magick
-    p.luacheck
+    # p.luacheck
   ];
 
   providers = {
@@ -29,41 +29,45 @@
     perl.enable = true;
   };
 
-  plugins.start = with pkgs.vimPlugins; [
-    lz-n
-    plenary-nvim
-    # -- disable in favor of mini-icons
-    # nvim-web-devicons
-    mini-icons
-    nvim-treesitter.withAllGrammars
-    which-key-nvim
-    snacks-nvim
-    # colorschemes
-    vim-moonfly-colors
-  ];
+  plugins = {
+    start = with pkgs.vimPlugins; [
+      lz-n
+      plenary-nvim
+      # -- disable in favor of mini-icons
+      # nvim-web-devicons
+      mini-icons
+      nvim-lint
+      nvim-treesitter.withAllGrammars
+      which-key-nvim
+      snacks-nvim
+      # colorschemes
+      vim-moonfly-colors
+    ];
 
-  plugins.opt = with pkgs.vimPlugins; [
-    blink-cmp
-    bufferline-nvim
-    bufdelete-nvim
-    conform-nvim
-    lspkind-nvim
-    lualine-nvim
-    lazydev-nvim
-    nvim-lspconfig
-    oil-nvim
-  ];
+    opt = with pkgs.vimPlugins; [
+      blink-cmp
+      blink-ripgrep-nvim
+      bufferline-nvim
+      bufdelete-nvim
+      conform-nvim
+      lspkind-nvim
+      lualine-nvim
+      lazydev-nvim
+      nvim-lspconfig
+      oil-nvim
+    ];
 
-  plugins.dev.config = {
-    pure = lib.fileset.toSource {
-      root = ./.;
-      fileset = lib.fileset.unions [
-        ./lua
-        ./after
-      ];
+    dev.config = {
+      pure = lib.fileset.toSource {
+        root = ./.;
+        fileset = lib.fileset.unions [
+          ./lua
+          ./after
+        ];
+      };
+
+      impure = "~/projects/neovim-flake";
     };
-
-    impure = "~/projects/neovim-flake";
   };
 
   initLua = ''
@@ -73,56 +77,69 @@
     LZN.load("plugins")
   '';
 
-  extraBinPath =
-    let
-      formatters = with pkgs; [
-        nixfmt-rfc-style
-        stylua
+  # extraBinPath = with pkgs;
+  #   let
+  #     formatters = [
+  #       nixfmt-rfc-style
+  #       stylua
+  #       deadnix
+  #       statix
+  #       rustfmt
+  #       luaPackages.luacheck
+  #     ];
+
+  #     langservers = [
+  #       lua-language-server
+  #       nil
+  #       rust-analyzer
+  #       vscode-langservers-extracted
+  #       zls
+  #       rust-analyzer
+  #     ];
+  #     misc = [
+  #       fd
+  #       jq
+  #       tmux
+  #       git
+  #       gh
+  #       lazygit
+  #       ripgrep
+  #       imagemagickBig
+  #       ueberzugpp
+  #       tectonic
+  #       mermaid-cli
+  #     ]
+  #     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.wl-clipboard ];
+  #   in
+  #   lib.unique (formatters ++ langservers ++ misc);
+
+  extraBinPath = builtins.attrValues (
+    {
+      inherit (pkgs)
+        # formatters
         deadnix
         statix
+        nixfmt-rfc-style
+        stylua
         rustfmt
-      ];
 
-      langservers = with pkgs; [
+        # langservers
         lua-language-server
         nil
         rust-analyzer
         vscode-langservers-extracted
-      ];
-      misc =
-        with pkgs;
-        [
-          fd
-          jq
-          tmux
-          git
-          gh
-          lazygit
-          ripgrep
-          imagemagickBig
-          ueberzugpp
-          tectonic
-          mermaid-cli
-        ]
-        ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.wl-clipboard ];
-    in
-    lib.unique (formatters ++ langservers ++ misc);
+        zls
 
-  # extraBinPath = builtins.attrValues {
-  #   inherit (pkgs)
-  # 	  deadnix
-  # 		statix
-  # 		nixfmt-rfc-style
-  # 		stylua
-  # 		rustfmt
-
-  # 		lua-language-server
-  # 		nil
-  # 		rust-analyzer
-
-  # 		ripgrep
-  # 		fd
-  # 		vscode-langservers-extracted
-  # 		;
-  # };
+        # cli tools
+        ripgrep
+        fd
+        jq
+        tmux
+        git
+        gh
+        lazygit
+        ;
+    }
+    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { inherit (pkgs) wl-clipboard; }
+  );
 }

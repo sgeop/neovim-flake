@@ -50,12 +50,19 @@
       devShells = eachSystem (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs { inherit system; }; # nixpkgs.legacyPackages.${system};
+          shell = pkgs.mkShell {
+            name = "nvim-shell";
+            buildInputs = [
+              pkgs.lua-language-server
+              pkgs.luaPackages.luacheck
+              self.packages.${system}.default.devMode
+            ];
+          };
         in
         {
-          default = pkgs.mkShellNoCC {
-            packages = nixpkgs.lib.singleton self.packages.${pkgs.stdenv.hostPlatform.system}.default.devMode;
-          };
+          default = shell;
+          # packages = nixpkgs.lib.singleton self.packages.${pkgs.stdenv.hostPlatform.system}.default.devMode;
         }
       );
 
