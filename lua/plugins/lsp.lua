@@ -10,7 +10,7 @@ return {
     })
 
     vim.diagnostic.config {
-      update_in_insert = false,
+      update_in_insert = true,
       virtual_text = false,
       virtual_lines = { enable = true, current_line = true },
       underline = true,
@@ -30,6 +30,6 @@ return {
       },
     }
 
-    vim.lsp.enable { 'nil_ls', 'lua_ls', 'ruff_lsp', 'zls', 'rust_analyzer' }
+    vim.lsp.enable { 'nil_ls', 'lua_ls', 'ruff', 'zls', 'rust_analyzer' }
   end,
 }

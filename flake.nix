@@ -6,6 +6,9 @@
     mnw.url = "github:gerg-l/mnw";
     systems.url = "github:nix-systems/default";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    # plugins
+    blink-cmp.url = "github:saghen/blink.cmp";
   };
 
   outputs =
@@ -14,6 +17,7 @@
       nixpkgs,
       mnw,
       systems,
+      blink-cmp,
       ...
     }:
     let

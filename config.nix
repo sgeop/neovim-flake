@@ -4,14 +4,18 @@
   pkgs,
   ...
 }:
-
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+  blink-packages = inputs.blink-cmp.packages.${system};
+in
 {
-  inherit (inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.system}) neovim;
+  inherit (inputs.neovim-nightly-overlay.packages.${system}) neovim;
 
   appName = "neovim-flake";
 
   aliases = [
-    "vim"
+    "nn"
+    "mnw"
   ];
 
   desktopEntry = false;
@@ -45,6 +49,8 @@
     ];
 
     opt = with pkgs.vimPlugins; [
+      # inputs.blink-cmp.packages.${pkgs.stdenv.system}.blink-cmp
+      # inputs.blink-cmp.packages.${pkgs.stdenv.system}.blink-fuzzy-plugin
       blink-cmp
       blink-ripgrep-nvim
       bufferline-nvim
@@ -56,6 +62,14 @@
       nvim-lspconfig
       oil-nvim
     ];
+
+    startAttrs = {
+      inherit (blink-packages) blink-fuzzy-lib;
+    };
+
+    optAttrs = {
+      inherit (blink-packages) blink-cmp;
+    };
 
     dev.config = {
       pure = lib.fileset.toSource {
@@ -139,6 +153,8 @@
         gh
         lazygit
         ;
+
+      inherit (blink-packages) blink-fuzzy-lib;
     }
     // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { inherit (pkgs) wl-clipboard; }
   );
