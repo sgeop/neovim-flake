@@ -95,8 +95,9 @@ return {
           ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
           ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
         },
+        fuzzy = { implementation = 'prefer_rust_with_warning' },
         sources = {
-          default = { 'lsp', 'buffer', 'snippets', 'path' },
+          default = { 'lsp', 'buffer', 'ripgrep', 'path', 'snippets' },
           per_filetype = {
             lua = { inherit_defaults = true, 'lazydev' },
           },
@@ -111,6 +112,11 @@ return {
             },
             path = {
               min_keyword_length = 0,
+              opts = {
+                get_cwd = function(_)
+                  return vim.fn.getcwd()
+                end,
+              },
             },
             ripgrep = {
               module = 'blink-ripgrep',

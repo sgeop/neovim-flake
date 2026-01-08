@@ -19,9 +19,16 @@ return {
         lsp_format = 'fallback',
       },
       formatters_by_ft = {
+        go = { 'gofumpt' },
         lua = { 'stylua' },
         nix = { 'alejandra', 'nixfmt' },
+        python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         rust = { 'rustfmt' },
+        sh = { 'shellcheck' },
+        yaml = { 'yq', 'yamlfmt' },
+        json = { 'jq' },
+        zig = { 'zigfmt' },
+        ['_'] = { 'trim_whitespace' },
       },
     }
   end,

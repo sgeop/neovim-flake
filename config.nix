@@ -23,14 +23,14 @@ in
   extraLuaPackages = p: [
     p.jsregexp
     p.magick
-    # p.luacheck
+    p.luacheck
   ];
 
   providers = {
-    ruby.enable = true;
+    ruby.enable = false;
     python3.enable = true;
     nodeJs.enable = true;
-    perl.enable = true;
+    perl.enable = false;
   };
 
   plugins = {
@@ -51,7 +51,7 @@ in
     opt = with pkgs.vimPlugins; [
       # inputs.blink-cmp.packages.${pkgs.stdenv.system}.blink-cmp
       # inputs.blink-cmp.packages.${pkgs.stdenv.system}.blink-fuzzy-plugin
-      blink-cmp
+      blink-packages.blink-cmp
       blink-ripgrep-nvim
       bufferline-nvim
       bufdelete-nvim
@@ -62,14 +62,6 @@ in
       nvim-lspconfig
       oil-nvim
     ];
-
-    startAttrs = {
-      inherit (blink-packages) blink-fuzzy-lib;
-    };
-
-    optAttrs = {
-      inherit (blink-packages) blink-cmp;
-    };
 
     dev.config = {
       pure = lib.fileset.toSource {
@@ -131,30 +123,34 @@ in
     {
       inherit (pkgs)
         # formatters
+        alejandra
         deadnix
         statix
         nixfmt-rfc-style
         stylua
         rustfmt
-
+        shellcheck
+        gofumpt
+        golangci-lint
+        yamlfmt
+        jsonfmt
         # langservers
         lua-language-server
         nil
         rust-analyzer
         vscode-langservers-extracted
         zls
-
+        ruff
         # cli tools
         ripgrep
         fd
         jq
+        yq
         tmux
         git
         gh
         lazygit
         ;
-
-      inherit (blink-packages) blink-fuzzy-lib;
     }
     // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { inherit (pkgs) wl-clipboard; }
   );
