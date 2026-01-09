@@ -129,7 +129,7 @@ in
         alejandra
         deadnix
         statix
-        nixfmt-rfc-style
+        nixfmt
         stylua
         rustfmt
         shellcheck
@@ -158,6 +158,6 @@ in
         lazygit
         ;
     }
-    // lib.optionalAttrs system.isLinux { inherit (pkgs) wl-clipboard; }
+    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { inherit (pkgs) wl-clipboard; }
   );
 }
