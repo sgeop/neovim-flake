@@ -41,7 +41,7 @@ in
       # nvim-web-devicons
       mini-icons
       nvim-lint
-      nvim-treesitter.withAllGrammars
+      nvim-treesitter.withAllGrammars.dependencies
       which-key-nvim
       snacks-nvim
       # colorschemes
@@ -60,6 +60,7 @@ in
       lualine-nvim
       lazydev-nvim
       nvim-lspconfig
+      nvim-treesitter
       oil-nvim
     ];
 
