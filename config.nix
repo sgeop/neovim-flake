@@ -34,19 +34,23 @@ in
   };
 
   plugins = {
-    start = with pkgs.vimPlugins; [
-      lz-n
-      plenary-nvim
-      # -- disable in favor of mini-icons
-      # nvim-web-devicons
-      mini-icons
-      nvim-lint
-      nvim-treesitter.withAllGrammars.dependencies
-      which-key-nvim
-      snacks-nvim
-      # colorschemes
-      vim-moonfly-colors
-    ];
+    start =
+      with pkgs.vimPlugins;
+      [
+        lz-n
+        plenary-nvim
+        # -- disable in favor of mini-icons
+        # nvim-web-devicons
+        mini-icons
+        nvim-lint
+        which-key-nvim
+        snacks-nvim
+        # colorschemes
+        vim-moonfly-colors
+      ]
+      ++ [
+        nvim-treesitter.withAllGrammars.dependencies
+      ];
 
     opt = with pkgs.vimPlugins; [
       # inputs.blink-cmp.packages.${pkgs.stdenv.system}.blink-cmp

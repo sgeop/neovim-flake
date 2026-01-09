@@ -1,10 +1,8 @@
 return {
   {
     'nvim-treesitter',
-    -- event = "DeferredUIEnter",
-    lazy = false,
     after = function()
-      require('nvim-treesitter.config').setup {
+      require('nvim-treesitter.configs').setup {
         modules = {},
         sync_install = false,
         ignore_install = {},
