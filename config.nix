@@ -134,6 +134,7 @@ in
         rustfmt
         shellcheck
         tflint
+        trivy
         gofumpt
         golangci-lint
         yamlfmt
