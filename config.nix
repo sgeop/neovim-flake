@@ -133,17 +133,20 @@ in
         stylua
         rustfmt
         shellcheck
+        tflint
         gofumpt
         golangci-lint
         yamlfmt
         jsonfmt
         # langservers
+        bash-language-server
         lua-language-server
         nil
         rust-analyzer
         vscode-langservers-extracted
-        zls
         ruff
+        terraform-ls
+        zls
         # cli tools
         ripgrep
         fd
@@ -155,6 +158,6 @@ in
         lazygit
         ;
     }
-    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { inherit (pkgs) wl-clipboard; }
+    // lib.optionalAttrs system.isLinux { inherit (pkgs) wl-clipboard; }
   );
 }

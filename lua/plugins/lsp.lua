@@ -30,6 +30,14 @@ return {
       },
     }
 
-    vim.lsp.enable { 'nil_ls', 'lua_ls', 'ruff', 'zls', 'rust_analyzer' }
+    vim.lsp.enable {
+      'bashls',
+      'lua_ls',
+      'nil_ls',
+      'ruff',
+      'rust_analyzer',
+      'terraformls',
+      'zls',
+    }
   end,
 }
