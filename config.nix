@@ -48,9 +48,7 @@ in
         # colorschemes
         vim-moonfly-colors
       ]
-      ++ [
-        nvim-treesitter.withAllGrammars.dependencies
-      ];
+      ++ pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
 
     opt = with pkgs.vimPlugins; [
       # inputs.blink-cmp.packages.${pkgs.stdenv.system}.blink-cmp
