@@ -1,5 +1,4 @@
---@type vim.lsp.Config
-
+---@type vim.lsp.Config
 return {
   on_init = function(client)
     if client.workspace_folders then
@@ -9,7 +8,7 @@ return {
       end
     end
 
-    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua --[[@as table]], {
       format = {
         enable = true,
       },
@@ -25,8 +24,8 @@ return {
         checkThirdParty = false,
         library = {
           vim.env.VIMRUNTIME,
-          -- '${3rd}/luv/library',
-          -- '${3rd}/busted/library',
+          '${3rd}/luv/library',
+          '${3rd}/busted/library',
         },
       },
       completion = {

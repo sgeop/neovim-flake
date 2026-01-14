@@ -1,6 +1,6 @@
 return {
   'nvim-lspconfig',
-  event = 'DeferredUIEnter',
+  lazy = false,
   before = function()
     LZN.trigger_load('blink.cmp')
   end,
@@ -30,6 +30,6 @@ return {
       },
     }
 
-    vim.lsp.enable { 'nil_ls', 'lua_ls', 'ruff_lsp', 'zls', 'rust_analyzer' }
+    vim.lsp.enable { 'nixd', 'lua_ls', 'ruff_lsp', 'zls', 'rust_analyzer', 'gopls' }
   end,
 }
