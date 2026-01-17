@@ -124,8 +124,10 @@
         rustfmt
 
         # langservers
+        gopls
         lua-language-server
-        nil
+        # nil
+        nixd
         rust-analyzer
         vscode-langservers-extracted
         zls
