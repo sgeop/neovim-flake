@@ -2,9 +2,12 @@ local function augroup(name)
   return vim.api.nvim_create_augroup('user_' .. name, { clear = true })
 end
 
-vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'BufReadPost', 'BufWritePost' }, {
   callback = function()
-    require('lint').try_lint()
+    local lint_status, lint = pcall(require, 'lint')
+    if lint_status then
+      lint.try_lint()
+    end
   end,
 })
 

@@ -124,6 +124,7 @@
         rustfmt
 
         # langservers
+        gopls
         lua-language-server
         # nil
         nixd
