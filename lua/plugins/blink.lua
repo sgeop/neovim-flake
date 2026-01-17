@@ -96,7 +96,7 @@ return {
           ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
         },
         sources = {
-          default = { 'lsp', 'buffer', 'snippets', 'path' },
+          default = { 'lsp', 'path', 'snippets', 'buffer', 'ripgrep' },
           per_filetype = {
             lua = { inherit_defaults = true, 'lazydev' },
           },
