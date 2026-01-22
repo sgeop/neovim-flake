@@ -1,6 +1,6 @@
 local function get_python()
   if vim.loop.fs_stat('.venv/bin/python') ~= nil then
-    return { pythonPath = '.venv/bin/python' }
+    return { pythonPath = vim.loop.cwd() .. '/.venv/bin/python' }
   end
   local path = vim.fn.exepath('python') or vim.fn.exepath('python3')
   if path ~= nil then
