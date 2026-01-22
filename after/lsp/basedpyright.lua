@@ -8,8 +8,8 @@ return {
   settings = {
     basedpyright = {
       analysis = {
-        autoSearthPaths = true,
-        useLibraryCodeForPaths = true,
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
         diagnosticMode = 'openFilesOnly',
       },
     },
