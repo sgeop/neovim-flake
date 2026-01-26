@@ -18,10 +18,12 @@ return {
         timeout_ms = 500,
         lsp_format = 'fallback',
       },
+      notify_on_error = true,
       formatters_by_ft = {
         lua = { 'stylua' },
         nix = { 'alejandra', 'nixfmt' },
         rust = { 'rustfmt' },
+        python = { 'ruff_format' },
       },
     }
   end,

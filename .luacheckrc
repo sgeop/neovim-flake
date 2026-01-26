@@ -5,6 +5,7 @@ return {
     'vim',
     'use',
     'LZN',
+    'Snacks',
   },
   -- Adjust the maximum line length
   max_line_length = 120,

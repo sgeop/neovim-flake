@@ -122,8 +122,10 @@
         nixfmt-rfc-style
         stylua
         rustfmt
+        ruff
 
         # langservers
+        basedpyright
         gopls
         lua-language-server
         # nil

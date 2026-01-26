@@ -5,7 +5,7 @@ return {
     after = function()
       require('snacks').setup {
         bigfile = { enable = true },
-        explorer = { enable = true },
+        explorer = { enable = true, replace_netrw = true },
         terminal = { enable = true },
         indent = { enable = true },
         notifier = { enable = true },
