@@ -5,7 +5,7 @@ return {
   end,
   after = function()
     vim.lsp.config('*', {
-      capabilities = require('blink.cmp').get_lsp_capabilities(),
+      capabilities = require('blink.cmp').get_lsp_capabilities({}, true),
     })
 
     vim.diagnostic.config {
