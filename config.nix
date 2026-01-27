@@ -125,6 +125,7 @@
         ruff
 
         # langservers
+        bash-langauge-server
         basedpyright
         gopls
         lua-language-server
