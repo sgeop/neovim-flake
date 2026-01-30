@@ -124,7 +124,8 @@
         rustfmt
         ruff
 
-        # langservers
+        # LPSs
+        bash-language-server
         basedpyright
         gopls
         lua-language-server

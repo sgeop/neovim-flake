@@ -36,6 +36,8 @@ return {
           'vim',
           'require',
           'LZN',
+          'MiniIcons',
+          'WK',
         },
         disable = { 'missing-fields' },
       },

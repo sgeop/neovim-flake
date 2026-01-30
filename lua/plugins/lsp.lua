@@ -5,7 +5,7 @@ return {
   end,
   after = function()
     vim.lsp.config('*', {
-      capabilities = require('blink.cmp').get_lsp_capabilities(),
+      capabilities = require('blink.cmp').get_lsp_capabilities({}, true),
     })
 
     vim.diagnostic.config {
@@ -29,6 +29,6 @@ return {
       },
     }
 
-    vim.lsp.enable { 'nixd', 'lua_ls', 'basedpyright', 'zls', 'rust_analyzer', 'gopls' }
+    vim.lsp.enable { 'nixd', 'lua_ls', 'bashls', 'basedpyright', 'zls', 'rust_analyzer', 'gopls' }
   end,
 }
