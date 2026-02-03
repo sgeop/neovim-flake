@@ -131,9 +131,9 @@
         lua-language-server
         # nil
         nixd
-        ruff
         rust-analyzer
         vscode-langservers-extracted
+        vtsls
         zls
 
         # cli tools

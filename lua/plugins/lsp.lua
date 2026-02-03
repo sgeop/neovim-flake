@@ -29,6 +29,6 @@ return {
       },
     }
 
-    vim.lsp.enable { 'nixd', 'lua_ls', 'bashls', 'basedpyright', 'zls', 'rust_analyzer', 'gopls' }
+    vim.lsp.enable { 'nixd', 'lua_ls', 'bashls', 'basedpyright', 'zls', 'rust_analyzer', 'gopls', 'vtsls' }
   end,
 }
