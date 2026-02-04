@@ -30,5 +30,14 @@ return {
     }
 
     vim.lsp.enable { 'nixd', 'lua_ls', 'bashls', 'basedpyright', 'zls', 'rust_analyzer', 'gopls', 'vtsls' }
+
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Actions' })
+    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'Code Rename' })
+    vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover (alt)' })
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
   end,
+  wk = {
+    { '<leader>c', 'Code' },
+  },
 }

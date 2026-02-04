@@ -100,9 +100,9 @@ return {
       })
     end,
     wk = {
-      { '<leader>f', desc = 'find' },
-      { '<leader>s', desc = 'search' },
-      { '<leader>g', desc = 'git' },
+      { '<leader>f', desc = 'Find' },
+      { '<leader>s', desc = 'Search' },
+      { '<leader>g', desc = 'Git' },
     },
     keys = {
       -- Top Pickers & Explorer
