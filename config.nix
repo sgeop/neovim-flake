@@ -133,6 +133,7 @@
         nixd
         rust-analyzer
         vscode-langservers-extracted
+        vtsls
         zls
 
         # cli tools
