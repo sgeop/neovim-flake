@@ -55,6 +55,7 @@
       lazydev-nvim
       nvim-lspconfig
       oil-nvim
+      render-markdown-nvim
     ];
 
     dev.config = {
@@ -129,6 +130,7 @@
         basedpyright
         gopls
         lua-language-server
+        marksman
         # nil
         nixd
         rust-analyzer

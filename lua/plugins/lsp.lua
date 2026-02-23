@@ -29,7 +29,17 @@ return {
       },
     }
 
-    vim.lsp.enable { 'nixd', 'lua_ls', 'bashls', 'basedpyright', 'zls', 'rust_analyzer', 'gopls', 'vtsls' }
+    vim.lsp.enable {
+      'nixd',
+      'lua_ls',
+      'bashls',
+      'basedpyright',
+      'zls',
+      'rust_analyzer',
+      'gopls',
+      'vtsls',
+      'marksman',
+    }
 
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Actions' })
     vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'Code Rename' })
