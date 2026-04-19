@@ -42,11 +42,11 @@
       snacks-nvim
       # colorschemes
       vim-moonfly-colors
+      blink-cmp
+      blink-ripgrep-nvim
     ];
 
     opt = with pkgs.vimPlugins; [
-      blink-cmp
-      blink-ripgrep-nvim
       bufferline-nvim
       bufdelete-nvim
       conform-nvim
@@ -120,7 +120,7 @@
         # formatters
         deadnix
         statix
-        nixfmt-rfc-style
+        nixfmt
         stylua
         rustfmt
         ruff

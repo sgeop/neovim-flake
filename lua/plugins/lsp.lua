@@ -3,6 +3,7 @@ return {
   before = function()
     LZN.trigger_load('blink.cmp')
   end,
+  event = 'DeferredUIEnter',
   after = function()
     vim.lsp.config('*', {
       capabilities = require('blink.cmp').get_lsp_capabilities({}, true),

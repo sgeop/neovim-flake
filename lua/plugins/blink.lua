@@ -3,7 +3,8 @@ return {
   { 'blink-ripgrep.nvim' },
   {
     'blink.cmp',
-    event = 'DeferredUIEnter',
+    lazy = false,
+    -- event = 'DeferredUIEnter',
     before = function()
       LZN.trigger_load('lazydev.nvim')
       -- LZN.trigger_load('lspkind.nvim')
