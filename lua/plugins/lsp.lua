@@ -1,9 +1,9 @@
 return {
   'nvim-lspconfig',
+  event = 'DeferredUIEnter',
   before = function()
     LZN.trigger_load('blink.cmp')
   end,
-  event = 'DeferredUIEnter',
   after = function()
     vim.lsp.config('*', {
       capabilities = require('blink.cmp').get_lsp_capabilities({}, true),
@@ -42,13 +42,20 @@ return {
       'marksman',
     }
 
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Actions' })
-    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'Code Rename' })
-    vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover (alt)' })
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
+    vim.keymap.set('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'Actions' })
+    vim.keymap.set('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'Rename' })
+    vim.keymap.set('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Hover Documentation' })
+    vim.keymap.set('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = 'Signature Help' })
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Hover (alt)' })
+    vim.keymap.set('n', '<leader>lgd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = 'Goto Definition' })
+    vim.keymap.set('n', '<leader>lgD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { desc = 'Goto Declaration' })
+    vim.keymap.set('n', '<leader>lgt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { desc = 'Goto Definition' })
+    vim.keymap.set('n', '<leader>lgn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', { desc = 'Next Diagnostic' })
+    vim.keymap.set('n', '<leader>lgp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', { desc = 'Prev Diagnostic' })
+    vim.keymap.set('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Hover Documentation' })
   end,
   wk = {
-    { '<leader>c', 'Code' },
+    { '<leader>l', 'LSP' },
+    { '<leader>lg', 'Decs/Defs' },
   },
 }
