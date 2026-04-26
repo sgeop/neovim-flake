@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   inherit (inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.system}) neovim;
 
@@ -23,10 +22,10 @@
   ];
 
   providers = {
-    ruby.enable = true;
-    python3.enable = true;
-    nodeJs.enable = true;
-    perl.enable = true;
+    ruby.enable = false;
+    python3.enable = false;
+    nodeJs.enable = false;
+    perl.enable = false;
   };
 
   plugins = {
@@ -118,13 +117,13 @@
     {
       inherit (pkgs)
         # formatters
+        alejandra
         deadnix
         statix
         nixfmt
         stylua
         rustfmt
         ruff
-
         # LPSs
         bash-language-server
         basedpyright
@@ -137,7 +136,6 @@
         vscode-langservers-extracted
         vtsls
         zls
-
         # cli tools
         ripgrep
         fd

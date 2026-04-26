@@ -54,4 +54,5 @@ end
 require('config.options')
 require('config.keymaps')
 require('config.autocmds')
+require('config.treesitter')
 -- require("config.plugins")
