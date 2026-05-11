@@ -44,7 +44,9 @@ return {
           lualine_c = {
             '%=', --[[ add your center components here in place of this comment ]]
           },
-          lualine_x = {},
+          lualine_x = {
+            require('minuet.lualine'),
+          },
           lualine_y = { 'filetype', 'progress' },
           lualine_z = {
             { 'location', separator = { right = '' }, left_padding = 2 },
@@ -54,7 +56,7 @@ return {
           lualine_a = { 'filename' },
           lualine_b = {},
           lualine_c = {},
-          lualine_x = {},
+          -- lualine_x = {},
           lualine_y = {},
           lualine_z = { 'location' },
         },

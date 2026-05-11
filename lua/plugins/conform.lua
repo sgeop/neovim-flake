@@ -24,6 +24,7 @@ return {
         nix = { 'alejandra', 'nixfmt' },
         rust = { 'rustfmt' },
         python = { 'ruff_format' },
+        zig = { 'zls' },
       },
     }
   end,

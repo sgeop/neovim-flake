@@ -43,6 +43,8 @@
       vim-moonfly-colors
       blink-cmp
       blink-ripgrep-nvim
+      minuet-ai-nvim
+      zig-vim
     ];
 
     opt = with pkgs.vimPlugins; [
