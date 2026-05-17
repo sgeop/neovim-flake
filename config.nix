@@ -4,8 +4,15 @@
   pkgs,
   ...
 }:
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+  packages = {
+    inherit (inputs.neovim-nightly-overlay.packages.${system}) neovim;
+    inherit (inputs.blink-pairs.packages.${system}) blink-pairs;
+  };
+in
 {
-  inherit (inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.system}) neovim;
+  inherit (packages) neovim;
 
   appName = "neovim-flake";
 
@@ -43,7 +50,7 @@
       vim-moonfly-colors
       blink-cmp
       blink-ripgrep-nvim
-      inputs.blink-pairs.packages.${pkgs.stdenv.system}.default
+      packages.blink-pairs
       minuet-ai-nvim
       zig-vim
     ];
