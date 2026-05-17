@@ -3,9 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    mnw.url = "github:gerg-l/mnw";
     systems.url = "github:nix-systems/default";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    mnw.url = "github:gerg-l/mnw";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    blink-pairs = {
+      url = "github:saghen/blink.pairs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

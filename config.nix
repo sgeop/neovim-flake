@@ -23,8 +23,8 @@
 
   providers = {
     ruby.enable = false;
-    python3.enable = false;
-    nodeJs.enable = false;
+    python3.enable = true;
+    nodeJs.enable = true;
     perl.enable = false;
   };
 
@@ -43,6 +43,7 @@
       vim-moonfly-colors
       blink-cmp
       blink-ripgrep-nvim
+      inputs.blink-pairs.packages.${pkgs.stdenv.system}.default
       minuet-ai-nvim
       zig-vim
     ];
@@ -50,6 +51,7 @@
     opt = with pkgs.vimPlugins; [
       bufferline-nvim
       bufdelete-nvim
+      codecompanion-nvim
       conform-nvim
       lspkind-nvim
       lualine-nvim

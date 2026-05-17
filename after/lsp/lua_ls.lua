@@ -37,6 +37,7 @@ return {
           'require',
           'LZN',
           'MiniIcons',
+          'Snacks',
           'WK',
         },
         disable = { 'missing-fields' },

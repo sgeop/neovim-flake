@@ -22,6 +22,41 @@ return {
   { 'lspkind.nvim' },
   { 'blink-ripgrep.nvim' },
   {
+    'blink.pairs',
+    lazy = false,
+    after = function()
+      require('blink.pairs').setup {
+        mappings = {
+          enabled = true,
+          disabled_filetypes = {},
+          wrap = {
+            ['<C-b>'] = 'motion',
+            ['<C-S-b>'] = 'motion_reverse',
+          },
+        },
+        highlights = {
+          enabled = true,
+          -- requires require('vim._extui').enable({}), otherwise has no effect
+          cmdline = true,
+          -- set to { 'BlinkPairs' } to disable rainbow highlighting
+          groups = { 'BlinkPairsOrange', 'BlinkPairsPurple', 'BlinkPairsBlue' },
+          unmatched_group = 'BlinkPairsUnmatched',
+
+          -- highlights matching pairs under the cursor
+          matchparen = {
+            enabled = true,
+            -- known issue where typing won't update matchparen highlight, disabled by default
+            cmdline = false,
+            -- also include pairs not on top of the cursor, but surrounding the cursor
+            include_surrounding = false,
+            group = 'BlinkPairsMatchParen',
+            priority = 250,
+          },
+        },
+      }
+    end,
+  },
+  {
     'blink.cmp',
     lazy = false,
     -- event = 'DeferredUIEnter',
