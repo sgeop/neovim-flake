@@ -45,13 +45,14 @@ in
       nvim-lint
       nvim-treesitter.withAllGrammars
       which-key-nvim
+      tiny-inline-diagnostic-nvim
       snacks-nvim
       # colorschemes
       vim-moonfly-colors
       blink-cmp
       blink-ripgrep-nvim
       packages.blink-pairs
-      minuet-ai-nvim
+      # minuet-ai-nvim
       zig-vim
     ];
 
@@ -66,7 +67,6 @@ in
       nvim-lspconfig
       oil-nvim
       render-markdown-nvim
-      tiny-inline-diagnostic-nvim
     ];
 
     dev.config = {
