@@ -1,6 +1,6 @@
 return {
   'tiny-inline-diagnostic.nvim',
-  lazy = false,
+  event = 'DeferredUIEnter',
   after = function()
     require('tiny-inline-diagnostic').setup {
       preset = 'modern',
