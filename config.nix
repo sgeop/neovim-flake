@@ -66,6 +66,7 @@ in
       nvim-lspconfig
       oil-nvim
       render-markdown-nvim
+      tiny-inline-diagnostic-nvim
     ];
 
     dev.config = {
@@ -145,7 +146,8 @@ in
         nixd
         rust-analyzer
         vscode-langservers-extracted
-        vtsls
+        # vtsls
+        typescript-go
         zls
         # cli tools
         ripgrep
