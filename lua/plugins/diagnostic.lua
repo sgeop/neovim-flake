@@ -5,8 +5,8 @@ return {
     vim.diagnostic.config {
       update_in_insert = false,
       virtual_text = false,
-      virtual_lines = { enable = false, current_line = false },
-      underline = true,
+      -- virtual_lines = { enable = false, current_line = false },
+      -- underline = true,
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = '',
@@ -14,12 +14,12 @@ return {
           [vim.diagnostic.severity.INFO] = '',
           [vim.diagnostic.severity.HINT] = '',
         },
-        linehl = {
-          [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-        },
-        numhl = {
-          [vim.diagnostic.severity.WARN] = 'WarningMsg',
-        },
+        -- linehl = {
+        --   [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+        -- },
+        -- numhl = {
+        --   [vim.diagnostic.severity.WARN] = 'WarningMsg',
+        -- },
       },
     }
 
