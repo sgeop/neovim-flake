@@ -39,7 +39,7 @@
           name = "format";
           runtimeInputs = builtins.attrValues {
             inherit (pkgs)
-              nixfmt-rfc-style
+              nixfmt
               deadnix
               statix
               fd
@@ -49,7 +49,7 @@
           text = ''
             fd "$@" -t f -e nix -x statix fix -- '{}'
             fd "$@" -t f -e nix -X deadnix -e -- '{}' \; -X nixfmt '{}'
-            fd "$@" -t f -e lua -X stylua --indent-type Spaces --indent-width 2 '{}'
+            fd "$@" -t f -e lua -X stylua '{}'
           '';
         }
       );

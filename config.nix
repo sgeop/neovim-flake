@@ -47,6 +47,7 @@ in
       which-key-nvim
       tiny-inline-diagnostic-nvim
       snacks-nvim
+      nvim-lspconfig
       # colorschemes
       vim-moonfly-colors
       blink-cmp
@@ -64,7 +65,6 @@ in
       lspkind-nvim
       lualine-nvim
       lazydev-nvim
-      nvim-lspconfig
       oil-nvim
       render-markdown-nvim
     ];

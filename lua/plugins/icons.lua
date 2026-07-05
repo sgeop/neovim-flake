@@ -7,15 +7,15 @@ return {
   --   end,
   -- },
   {
-    'mini.icons',
+    "mini.icons",
     lazy = false,
     -- before = function()
     --   LZN.trigger_load("nvim-web-devicons")
     -- end,
     after = function()
-      require('mini.icons').setup {
+      require("mini.icons").setup {
         use_file_extension = function(ext)
-          return ext:sub(-3) ~= 'scm'
+          return ext:sub(-3) ~= "scm"
         end,
       }
       MiniIcons.mock_nvim_web_devicons()

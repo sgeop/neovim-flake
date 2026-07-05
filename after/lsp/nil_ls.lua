@@ -1,10 +1,10 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { 'nil' },
+  cmd = { "nil" },
   settings = {
-    ['nil'] = {
+    ["nil"] = {
       nix = {
-        binary = 'nix',
+        binary = "nix",
         maxMemoryMB = nil,
         flake = {
           autoEvalInputs = false,
