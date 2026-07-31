@@ -41,6 +41,7 @@ in
       plenary-nvim
       # -- disable in favor of mini-icons
       # nvim-web-devicons
+      gitsigns-nvim
       mini-icons
       nvim-lint
       nvim-treesitter.withAllGrammars
