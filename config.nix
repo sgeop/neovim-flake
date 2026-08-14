@@ -10,6 +10,17 @@ let
     inherit (inputs.neovim-nightly-overlay.packages.${system}) neovim;
     inherit (inputs.blink-pairs.packages.${system}) blink-pairs;
   };
+
+  md-render-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "md-render.nvim";
+    version = "2026-08-11"; # Tracked revision timestamp
+    src = pkgs.fetchFromGitHub {
+      owner = "delphinus";
+      repo = "md-render.nvim";
+      rev = "main"; # Or lock this to a specific SHA for absolute predictability
+      hash = "sha256-A3J2ZquRp4ZHmajihR62LDg8viY8DsdAanDXjbLIgHk="; # Run nix-prefetch-url to find your hash
+    };
+  };
 in
 {
   inherit (packages) neovim;
@@ -21,6 +32,12 @@ in
   ];
 
   desktopEntry = false;
+
+  wrapperArgs = [
+    "--set"
+    "SNACKS_GHOSTTY"
+    "true"
+  ];
 
   extraLuaPackages = p: [
     p.jsregexp
@@ -68,6 +85,7 @@ in
       lazydev-nvim
       oil-nvim
       render-markdown-nvim
+      md-render-nvim
     ];
 
     dev.config = {
@@ -158,6 +176,8 @@ in
         git
         gh
         lazygit
+        # rendering
+        mermaid-cli
         ;
     }
     // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux { inherit (pkgs) wl-clipboard; }
