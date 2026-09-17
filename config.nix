@@ -48,7 +48,7 @@ in
   providers = {
     ruby.enable = false;
     python3.enable = true;
-    nodeJs.enable = true;
+    nodeJs.enable = false;
     perl.enable = false;
   };
 
@@ -70,7 +70,6 @@ in
       vim-moonfly-colors
       blink-cmp
       blink-ripgrep-nvim
-      packages.blink-pairs
       # minuet-ai-nvim
       zig-vim
     ];
@@ -108,42 +107,6 @@ in
     LZN.load("plugins")
   '';
 
-  # extraBinPath = with pkgs;
-  #   let
-  #     formatters = [
-  #       nixfmt-rfc-style
-  #       stylua
-  #       deadnix
-  #       statix
-  #       rustfmt
-  #       luaPackages.luacheck
-  #     ];
-
-  #     langservers = [
-  #       lua-language-server
-  #       nil
-  #       rust-analyzer
-  #       vscode-langservers-extracted
-  #       zls
-  #       rust-analyzer
-  #     ];
-  #     misc = [
-  #       fd
-  #       jq
-  #       tmux
-  #       git
-  #       gh
-  #       lazygit
-  #       ripgrep
-  #       imagemagickBig
-  #       ueberzugpp
-  #       tectonic
-  #       mermaid-cli
-  #     ]
-  #     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.wl-clipboard ];
-  #   in
-  #   lib.unique (formatters ++ langservers ++ misc);
-
   extraBinPath = builtins.attrValues (
     {
       inherit (pkgs)
@@ -166,7 +129,7 @@ in
         rust-analyzer
         vscode-langservers-extracted
         # vtsls
-        typescript-go
+        typescript
         zls
         # cli tools
         ripgrep
