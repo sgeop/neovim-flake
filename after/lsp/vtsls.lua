@@ -1,26 +1,29 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { 'vtsls', '--stdio' },
+  cmd = { "vtsls", "--stdio" },
   init_options = {
-    hostInfo = 'neovim',
+    hostInfo = "neovim",
   },
   filetypes = {
-    'javascript',
-    'javascriptreact',
-    'javascript.jsx',
-    'typescript',
-    'typescriptreact',
-    'typescript.tsx',
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
   },
   root_dir = function(bufnr, on_dir)
     -- The project root is where the LSP can be started from
     -- As stated in the documentation above, this LSP supports monorepos and simple projects.
     -- We select then from the project root, which is identified by the presence of a package
     -- manager lock file.
-    local root_markers = { { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }, '.git' }
+    local root_markers = {
+      { "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "bun.lockb", "bun.lock" },
+      ".git",
+    }
 
     -- exclude deno
-    if vim.fs.root(bufnr, { 'deno.json', 'deno.jsonc', 'deno.lock' }) then
+    if vim.fs.root(bufnr, { "deno.json", "deno.jsonc", "deno.lock" }) then
       return
     end
 

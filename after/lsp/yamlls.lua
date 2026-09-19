@@ -1,8 +1,8 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { 'yaml-language-server', '--stdio' },
-  filetypes = { 'yaml', 'yaml.docker-compose', 'yaml.gitlab', 'yaml.helm-values' },
-  root_markers = { '.git' },
+  cmd = { "yaml-language-server", "--stdio" },
+  filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.helm-values" },
+  root_markers = { ".git" },
   settings = {
     -- formatting disabled by default in yaml-language-server; enable it
     yaml = { format = { enable = true } },

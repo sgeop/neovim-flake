@@ -3,7 +3,7 @@ local opt = vim.opt
 opt.backup = false
 opt.writebackup = false
 opt.undofile = true
-opt.jumpoptions = 'stack,view'
+opt.jumpoptions = "stack,view"
 opt.autoindent = true
 
 -- line numbers and navigation
@@ -24,10 +24,10 @@ opt.updatetime = 400 -- faster completion
 opt.redrawtime = 10000
 opt.maxmempattern = 20000
 
-opt.mouse = 'a'
-opt.clipboard = 'unnamedplus'
+opt.mouse = "a"
+opt.clipboard = "unnamedplus"
 
-opt.grepprg = 'rg --vimgrep'
+opt.grepprg = "rg --vimgrep"
 
 -- execute .nvim.lua files in project root
 vim.opt.exrc = true
