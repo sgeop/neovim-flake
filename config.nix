@@ -6,24 +6,9 @@
 }:
 let
   inherit (pkgs.stdenv.hostPlatform) system;
-  packages = {
-    inherit (inputs.neovim-nightly-overlay.packages.${system}) neovim;
-    inherit (inputs.blink-pairs.packages.${system}) blink-pairs;
-  };
-
-  md-render-nvim = pkgs.vimUtils.buildVimPlugin {
-    pname = "md-render.nvim";
-    version = "2026-08-11"; # Tracked revision timestamp
-    src = pkgs.fetchFromGitHub {
-      owner = "delphinus";
-      repo = "md-render.nvim";
-      rev = "main"; # Or lock this to a specific SHA for absolute predictability
-      hash = "sha256-A3J2ZquRp4ZHmajihR62LDg8viY8DsdAanDXjbLIgHk="; # Run nix-prefetch-url to find your hash
-    };
-  };
 in
 {
-  inherit (packages) neovim;
+  inherit (inputs.neovim-nightly-overlay.packages.${system}) neovim;
 
   appName = "neovim-flake";
 
@@ -60,6 +45,7 @@ in
       # nvim-web-devicons
       gitsigns-nvim
       mini-icons
+      mini-pairs
       nvim-lint
       nvim-treesitter.withAllGrammars
       which-key-nvim
@@ -70,7 +56,6 @@ in
       vim-moonfly-colors
       blink-cmp
       blink-ripgrep-nvim
-      # minuet-ai-nvim
       zig-vim
     ];
 
@@ -84,7 +69,6 @@ in
       lazydev-nvim
       oil-nvim
       render-markdown-nvim
-      md-render-nvim
     ];
 
     dev.config = {

@@ -9,10 +9,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    blink-pairs = {
-      url = "github:saghen/blink.pairs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
